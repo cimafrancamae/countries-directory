@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   root "countries#index"
 
   resources :countries, only: %i[index show]
+
+  get :search_region, to: "search#search_region"
+  get :search_country, to: "search#search_country"
 end

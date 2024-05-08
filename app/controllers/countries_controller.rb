@@ -1,8 +1,11 @@
 class CountriesController < ApplicationController
+  before_action :set_rest_countries
+
   def index
-    client = RestCountries::Client.new
-    @countries = client.all
+    @countries = @client.all
   end
 
-  def show; end
+  def show
+    @country = @client.code(params[:id])
+  end
 end
