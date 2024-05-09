@@ -6,8 +6,8 @@ import { application } from "controllers/application"
 import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading"
 eagerLoadControllersFrom("controllers", application)
 
-import SearchController from "./search_controller"
-application.register('search', SearchController)
+import SearchCountriesController from "./search_countries_controller"
+application.register('search-countries', SearchCountriesController)
 
 import AutoSubmit from '@stimulus-components/auto-submit'
 application.register('auto-submit', AutoSubmit)
