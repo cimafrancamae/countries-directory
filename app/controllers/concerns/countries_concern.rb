@@ -14,7 +14,12 @@ module CountriesConcern
 
     def fetch_country(country)
       Rails.cache.fetch("#{country}_cache", expires_in: 24.hours) do
-        @client.name(country)
+        begin
+          @client.name(country)
+        rescue StandardError => e
+          Rails.logger.error "Error fetching country: #{country}. #{e.message}"
+          raise "Country name not found: #{country}"
+        end
       end
     end
 
