@@ -7,6 +7,9 @@ class CountriesController < ApplicationController
 
   def show
     @country = fetch_code(params[:id])
+  rescue RestCountries::Error => e
+    render turbo_stream:
+      turbo_stream.prepend("toast", partial: "shared/toast", locals: { message: e.message })
   end
 
 end

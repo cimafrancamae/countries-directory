@@ -14,12 +14,7 @@ module CountriesConcern
 
     def fetch_country(country)
       Rails.cache.fetch("#{country}_cache", expires_in: 24.hours) do
-        begin
-          @client.name(country)
-        rescue StandardError => e
-          Rails.logger.error "Error fetching country: #{country}. #{e.message}"
-          raise "Country name not found: #{country}"
-        end
+        @client.name(country)
       end
     end
 
@@ -34,5 +29,11 @@ module CountriesConcern
         @client.code(code)
       end
     end
+  end
+
+  private
+
+  def set_rest_countries
+    @client = RestCountries::Client.new
   end
 end

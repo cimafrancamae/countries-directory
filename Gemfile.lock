@@ -228,7 +228,7 @@ GEM
     regexp_parser (2.9.0)
     reline (0.5.5)
       io-console (~> 0.5)
-    rest_countries (1.0.1)
+    rest_countries (1.0.3)
       faraday (~> 1.7)
     rexml (3.2.6)
     ruby2_keywords (0.0.5)

@@ -25,8 +25,8 @@ class SearchController < CountriesController
     end
     render turbo_stream:
       turbo_stream.update("countries", partial: "countries", locals: { countries: @countries})
-  rescue StandardError => e
+  rescue RestCountries::Error => e
     render turbo_stream:
-      turbo_stream.prepend("toast", partial: "shared/toast", locals: { message: e.message })
+      turbo_stream.prepend("toast", partial: "shared/toast", locals: { message: "#{query.capitalize}: #{e.message}" })
   end
 end

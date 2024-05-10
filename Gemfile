@@ -69,6 +69,7 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "rest_countries", "~> 1.0"
 
 gem "tailwindcss-rails", "~> 2.6"
+
+gem "rest_countries", "~> 1.0"
